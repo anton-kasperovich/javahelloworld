@@ -11,7 +11,7 @@ pipeline {
                 sh 'echo Unit Tests'
             }
         }
-        stage('Upload Package') {
+        stage('Package store') {
             steps {
                 sh 'echo test'
             }
@@ -33,6 +33,11 @@ pipeline {
                     agent any 
                     steps {
                         sh 'echo Regression Tests'
+                    }
+                }stage('E2E Tests') {
+                    agent any 
+                    steps {
+                        sh 'echo E2E Tests'
                     }
                 }
             }
