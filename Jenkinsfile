@@ -34,7 +34,8 @@ pipeline {
                     steps {
                         sh 'echo Regression Tests'
                     }
-                }stage('E2E Tests') {
+                }
+                stage('E2E Tests') {
                     agent any 
                     steps {
                         sh 'echo E2E Tests'
