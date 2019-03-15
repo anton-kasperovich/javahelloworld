@@ -1,20 +1,35 @@
-
-pipeline {
+pipeline { 
     agent any 
     stages {
         stage('Build') { 
-            steps {
-                // 
+            steps { 
+                sh 'echo build'
             }
         }
-        stage('Test') { 
-            steps {
-                // 
+        stage('Run Tests') {
+            parallel {
+                stage('Unit Tests') {
+                    agent any 
+                    steps {
+                        sh 'echo Unit Tests'
+                    }
+                }
+                stage('Smoke Tests') {
+                    agent any 
+                    steps {
+                        sh 'echo Smoke Tests'
+                    }
+                }
             }
         }
-        stage('Deploy') { 
+        stage('Artifact upload') {
             steps {
-                // 
+                sh 'echo test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'echo deploy'
             }
         }
     }
